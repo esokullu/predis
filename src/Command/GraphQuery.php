@@ -35,7 +35,7 @@ class GraphQuery extends Command
             return "";
         if(!is_array($data[0])||count($data[0])<2) 
             return "";
-        $vals = array_pad($data[0], -1);
+        $vals = array_slice($data[0], 1);
         foreach($vals as $k=>$val)
             $vals[$k] = explode(",", $val);
         return $vals;
