@@ -29,8 +29,16 @@ class GraphQuery extends Command
     /**
      * {@inheritdoc}
      */
-    protected function filterArguments($arguments)
+    public function parseResponse($data)
     {
-        return $arguments;
+        if(!is_array($data)||count($data)!=2)
+            return "";
+        if(!is_array($data[0])||count($data[0])<2) 
+            return "";
+        $vals = array_pad($data[0], -1);
+        foreach($vals as $k=>$val)
+            $vals[$k] = explode(",", $val);
+        return $vals;
     }
+
 }
