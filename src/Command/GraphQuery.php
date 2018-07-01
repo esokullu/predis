@@ -36,8 +36,16 @@ class GraphQuery extends Command
         if(!is_array($data[0])||count($data[0])<2) 
             return "";
         $vals = array_slice($data[0], 1);
-        foreach($vals as $k=>$val)
-            $vals[$k] = explode(",", $val);
+        $keys = explode(",", $data[0][0]);
+        foreach($vals as $k=>$val) {
+            $cells = explode(",", $val);
+            if(count($cells)!=count($keys)) {
+                $vals[$k] = $cells;
+                continue;
+            }
+            foreach($cells as $n=>$cell)
+                $vals[$k][($keys[$n])] = $cell;
+        }
         return $vals;
     }
 
