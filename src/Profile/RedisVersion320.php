@@ -276,6 +276,8 @@ class RedisVersion320 extends RedisProfile
             'GEODIST' => 'Predis\Command\GeospatialGeoDist',
             'GEORADIUS' => 'Predis\Command\GeospatialGeoRadius',
             'GEORADIUSBYMEMBER' => 'Predis\Command\GeospatialGeoRadiusByMember',
+
+            'GRAPHQUERY' => 'Predis\Command\GraphQuery'
         );
     }
 }
